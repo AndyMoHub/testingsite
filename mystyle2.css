@@ -1,0 +1,99 @@
+@import url('https://fonts.cdnfonts.com/css/calibri-light');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'calibri-light', sans-serif;
+}
+
+header{
+    background-color: rgb(241, 233, 211);
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    color:rgb(151, 132, 87);
+    text-decoration: none;
+}
+
+.navbar{
+    min-height: 70px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+}
+
+.nav-menu{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    
+}
+
+.nav-branding{
+    font-size: 2rem;
+}
+
+.nav-link{
+    transition:0.6s;
+}
+
+.nav-link:hover{
+    background-color: rgb(224, 195, 113);
+    color: black;
+    padding: 25px 30px;
+}
+
+.hamburger{
+    display:none; /* don't want the hamburger to appear, only want it to appear when the window is minimized" */
+    cursor:pointer;
+}
+
+
+.bar{
+    display:block;
+    width: 25px; /*set the width of the bars*/
+    height: 3px; /*set the height of the bars*/
+    margin: 5px auto; /*set the spacing of the bars*/
+    background-color:rgb(196, 164, 95);
+}
+
+@media(max-width:900px){
+    .hamburger{
+        display: block; /*this will display the hambruger and given max-width*/
+    }
+
+    .hamburger.active .bar:nth-child(2){ /*want to make a X when clicking on the hamburger, this will make the middle bar dissapear*/
+        opacity:0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform:translateY(8px) rotate(45deg); /*sets it so that the first bar will rotate 45 degree angle and translate 8 px*/
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform:translateY(-8px) rotate(-45deg); /*sets it so that the third bar will rotate in the opposite direction*/
+    }
+
+    .nav-menu{
+        position:fixed; /*when scrolling the nav bar will stay on the top of the screen*/
+        left:-100%; /*hides navigation menu*/
+        gap:0;
+        flex-direction: column; /*so that the links in the menu appear in a column*/
+        background-color: rgb(37, 37, 35);
+        width: 100%;
+        text-align: center;
+        top:10px;
+        transition: 0.3s; /* So that the drop down menu doesn't immediately show and has a 0.3s transition*/
+    }
+    .nav-item{
+        margin:16px 0;
+    }
+    .nav-menu.active{
+        left:0;
+    }
+}
